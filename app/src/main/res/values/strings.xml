@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">compose.widget.learn</string>
+    <string name="widget_description">This is my custom widget description.</string>
+</resources>
