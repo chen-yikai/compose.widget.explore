@@ -3,6 +3,7 @@ package eliaschen.dev.composewidgetlearn
 import android.annotation.SuppressLint
 import android.content.Context
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
@@ -34,14 +35,25 @@ class DateWidget : GlanceAppWidget() {
         provideContent {
             Column(
                 modifier = GlanceModifier.fillMaxSize()
-                    .background(ColorProvider(Color(0xFFf7cdff))),
+                    .background(MaterialTheme.colorScheme.primaryContainer),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 val currentDate = SimpleDateFormat("dd", Locale.getDefault()).format(Date())
                 Text(
                     text = currentDate,
-                    style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                    style = TextStyle(
+                        color = ColorProvider(MaterialTheme.colorScheme.primary),
+                        fontSize = 40.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+                Text(
+                    text = "Day",
+                    style = TextStyle(
+                        color = ColorProvider(MaterialTheme.colorScheme.onPrimaryContainer),
+                        fontSize = 20.sp,
+                    )
                 )
             }
         }
